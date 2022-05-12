@@ -16,6 +16,8 @@ public class Mixer {
    private ArrayList<Ingredients>ingredient;
    private double capacity;
    private Dough dough;
+   private double calories;//nn
+   private double ratioOfCalories;//nn
    private double volume;
    
    
@@ -79,16 +81,16 @@ public class Mixer {
     }
      
 //free capacity for mixer and made the exception if the ingredients over flow the capacitr for the mixer  -------------------------
-public void freeCapacityException(double capacity , Dough wegithDough) throws MixerOverFlowException  {
-    
-   double freeCapacity = this.capacity - dough.getWeight(); 
-          
+//public void freeCapacityException(double capacity , Dough wegithDough) throws MixerOverFlowException  {
+  //  
+   //double freeCapacity = this.capacity - dough.getWeight(); 
+     //     
 
-  	  if ( freeCapacity < dough.getWeight()) {
-  		throw new MixerOverFlowException("the ingredients overFlow the mixer");
-} 
+  	//  if ( freeCapacity < dough.getWeight()) {
+  	//	throw new MixerOverFlowException("the ingredients overFlow the mixer");
+//} 
                  
-}
+//}
 
 
     
@@ -97,13 +99,13 @@ public void Pour (Pan p) throws MixerIsEmptyException{
 	 
          double freePan = p.getCapacity()- p.getSizePan();
 
-	 if (this.volume==0 || dough.getSizeDough()<p.getSizePan()) 
+	 if (this.volume==0 ) 
              throw new MixerIsEmptyException();
 		 if (freePan<=this.volume) {
 			 p.setSizePan(freePan);
-			 //p.setCalories(freePan*CalPerMl());
+			 p.setCalories(freePan*CalPerMl());
 			 this.volume-=freePan;
-			// this.calories-=freeCupV*CalPerMl();
+			 this.calories-=freePan*CalPerMl();
 			 
 			 
 			 
@@ -111,9 +113,9 @@ public void Pour (Pan p) throws MixerIsEmptyException{
 		 
 		 else {
 			 p.setSizePan(this.volume);
-			// p.setCalories(this.volume*CalPerMl());
+			 p.setCalories(this.volume*CalPerMl());
 			 this.volume=0;
-			 //this.calories=0;
+			 this.calories=0;
 			 
 		 }
 	 
@@ -122,5 +124,14 @@ public void Pour (Pan p) throws MixerIsEmptyException{
 	 
  }
  
-
+double CalPerMl () {
+	
+	if (volume>0 && calories>0) {
+	ratioOfCalories=(double)(this.calories)/(double)(this.volume); 
+	}
+	else ratioOfCalories=0;
+	
+        return ratioOfCalories;
+	
+}
 }

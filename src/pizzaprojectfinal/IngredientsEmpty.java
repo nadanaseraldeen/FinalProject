@@ -10,7 +10,7 @@ package pizzaprojectfinal;
  * @author HP
  */
 public class IngredientsEmpty extends Exception{
-     public IngredientsEmpty(){
+      public IngredientsEmpty(){
         super("The ingredient is empty !");
     }
 }

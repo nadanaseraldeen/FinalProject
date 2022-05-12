@@ -534,7 +534,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     }catch(IngredientsEmpty e){
                        JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
                     }
-                   ingredientTextArea.setText(p.getIInfo());
+                   ingredientTextArea.setText(p.getInfo());
 		     break ;
                      
                        
@@ -551,7 +551,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     }catch(IngredientsEmpty e){
                        JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
                     }
-                   ingredientTextArea.setText(p.getIInfo());
+                   ingredientTextArea.setText(p.getInfo());
 		     break ;
                 case 3:ing = new Ingredients("mushroom",55,20);
                   try{
@@ -566,7 +566,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     }catch(IngredientsEmpty e){
                        JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
                     }
-                  ingredientTextArea.setText(p.getIInfo());
+                  ingredientTextArea.setText(p.getInfo());
                   break;
                 case 4:     ing = new Ingredients("tomato",100,18);
                 try{
@@ -581,7 +581,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     }catch(IngredientsEmpty e){
                        JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
                     }
-                  ingredientTextArea.setText(p.getIInfo());
+                  ingredientTextArea.setText(p.getInfo());
                   break;
                 case 5:     ing = new Ingredients("olive",25,110);
 
@@ -598,7 +598,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     }catch(IngredientsEmpty e){
                        JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
                     }
-                  ingredientTextArea.setText(p.getIInfo());
+                  ingredientTextArea.setText(p.getInfo());
                   break;
                      
                 case 6: ing = new Ingredients("pepper",65,12);
@@ -616,7 +616,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     }catch(IngredientsEmpty e){
                        JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
                     }
-                  ingredientTextArea.setText(p.getIInfo());
+                  ingredientTextArea.setText(p.getInfo());
                   break;
                   
                 case 7: ing = new Ingredients("corn",35,128);
@@ -635,7 +635,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                       catch(IngredientsEmpty e){
                        JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
                     }
-                  ingredientTextArea.setText(p.getIInfo());
+                  ingredientTextArea.setText(p.getInfo());
                   break;
                 case 8:
                     ing = new Ingredients("chicken",70,116);
@@ -653,7 +653,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     }catch(IngredientsEmpty e){
                        JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
                     }
-                  ingredientTextArea.setText(p.getIInfo());
+                  ingredientTextArea.setText(p.getInfo());
                   break;
                      
                 case 9:
@@ -674,16 +674,21 @@ public class PizzaGUI extends javax.swing.JFrame {
            int f = Integer.parseInt(JOptionPane.showInputDialog("Choose your pizza Size : \n1-Small"
               +   "\n2-Medium \n3-Large"));
   Pan size = null;
+  
             switch(f){
                 case 1: p.setCapacity(150);
-                
+                p.setSizePizza("small");
                 break;
                 case 2:p.setCapacity(200);
+                p.setSizePizza("medium");
+
                 break;
                 case 3:p.setCapacity(250);
+                p.setSizePizza("large");
+                break;
             
        }
-            ingredientTextArea.setText(p.getIInfo());
+            ingredientTextArea.setText(p.getInfo());
         
     }//GEN-LAST:event_jButton3ActionPerformed
 

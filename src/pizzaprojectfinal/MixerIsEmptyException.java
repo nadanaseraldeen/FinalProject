@@ -10,9 +10,8 @@ package pizzaprojectfinal;
  * @author HP
  */
 public class MixerIsEmptyException extends Exception{
-       
-    public MixerIsEmptyException(){
-        super("The mixer is empty or the dough is less than the size of the pan!");
+     MixerIsEmptyException(){
+        super("the mixer is empty");
     }
     
 }

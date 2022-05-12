@@ -14,6 +14,7 @@ import java.util.Scanner;
  */
 public class Pan {
     private double sizePan;
+    private String sizePizza;
     private double calories;
     private double weight;
     private double volume;//nn
@@ -175,6 +176,22 @@ public class Pan {
         else
         this.capacity = capacity;
     }
+
+    public String getSizePizza() {
+        return sizePizza;
+    }
+
+    public void setSizePizza(String sizePizza) {
+        this.sizePizza = sizePizza;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
     
     
 
@@ -184,19 +201,26 @@ public class Pan {
         return  "sizePan=" + sizePan + ", \ncalories=" + calories + ", \nweight=" + weight + ", \ningredient=" + ingredient + ", \ndough=" + dough.getPanDeep()+ ", \ntotalCalories=" + totalCalories +  '}';
     }
   
-        public String getInfo() {
-        String ing="";
-        for (int i = 0; i < this.ingredient.size(); i++)
-          ing+= ingredient.get(i).getName()+"\n";
+      //  public String getInfo() {
+        //String ing="";
+        //for (int i = 0; i < this.ingredient.size(); i++)
+         // ing+= ingredient.get(i).getName()+"\n";
           
-     return  "ingredient:\n"+ing+"ingredients Total calories= " +calories + "\nweight = "+ weight+"\ncalories per piece "+this.caloriesPerPiece()  ;       
-    }
-        public String getIInfo()
+     //return  "ingredient:\n"+ing+"ingredients Total calories= " +calories + "\nweight = "+ weight+"\ncalories per piece "+this.caloriesPerPiece()  ;       
+    //}
+        
+        
+        
+        public String getInfo()
         {
-        return "\npan capacity:"+capacity+"\nthe total amount of calories :" + 
+        return "size pizza :" +this.sizePizza+"\npan capacity:"+capacity+"\nthe ingredients calories is  :" + 
                 this.getCalories() +"\nthe ingredients weight is : " +
-                this.getWeight();
+                this.getWeight()+"\ncalories per piece : " + this.caloriesPerPiece();
         }
+        
+        
+        
+        
 //add dough in the pan -------------------------------------------
   public  void addS(Dough d) {
      // d.setWeight(weight);
@@ -231,16 +255,12 @@ public void add(Ingredients ingredient) throws IngredientsOverFlowWeigh  {
           
         }
       }
-//calculate the total calories ------------------------------------------------------
-    public double totalCalories()
-    {
-        return this.getCalories()+dough.getDoughCalories();
-    }
+
     
 //caluclate the calories per piece ------------------------------------------------
     public double caloriesPerPiece()
     {
-        return this.totalCalories()/8;
+        return this.getCalories()/8;
     }
     
 
