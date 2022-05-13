@@ -16,8 +16,7 @@ public class Mixer {
    private ArrayList<Ingredients>ingredient;
    private double capacity;
    private Dough dough;
-   private double calories;//nn
-   private double ratioOfCalories;//nn
+   private double calories;
    private double volume;
    
    
@@ -29,16 +28,19 @@ public class Mixer {
      
 //constructor ---------------------------------------------------
 
-    public Mixer(ArrayList<Ingredients> ingredient, double capacity, Dough dough) {
+    public Mixer(ArrayList<Ingredients> ingredient, double capacity, Dough dough, double calories, double volume) {
         this.ingredient = ingredient;
         this.capacity = capacity;
         this.dough = dough;
+        this.calories = calories;
+        this.volume = volume;
     }
     
     public Mixer(double capacity)
     {
         this.capacity = capacity;
     }
+    
 //setters/getters ----------------------------------------------
 
     public ArrayList<Ingredients> getIngredient() {
@@ -65,34 +67,46 @@ public class Mixer {
         this.dough = dough;
     }
 
+    public double getCalories() {
+        return calories;
+    }
+
+    public void setCalories(double calories) {
+        this.calories = calories;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+    
+
 
 //getInfo -----------------------------------------------------
-
-    public String getInfo() {
-        return "Mixer{" + "ingredient=" + ingredient + ", capacity=" + capacity + ", dough=" + dough + '}';
-    }
-
-//mix the ingredients to make pizza dough -------------------------------------
-    public String mix()
-    {String ing="mix ingredients to make pizza dough\n";
-        for (int i = 0; i < this.ingredient.size(); i++)
-          ing+= ingredient.get(i).getName()+"\n";
-       return ing;   
+    public String getInfo()
+    {       return "Mixer{" + "ingredient=" + ingredient + ", capacity=" + capacity + ", dough=" + dough + ", calories=" + calories  + ", volume=" + volume + '}';
     }
      
-//free capacity for mixer and made the exception if the ingredients over flow the capacitr for the mixer  -------------------------
-//public void freeCapacityException(double capacity , Dough wegithDough) throws MixerOverFlowException  {
-  //  
-   //double freeCapacity = this.capacity - dough.getWeight(); 
-     //     
-
-  	//  if ( freeCapacity < dough.getWeight()) {
-  	//	throw new MixerOverFlowException("the ingredients overFlow the mixer");
-//} 
-                 
-//}
-
-
+//mix the ingredients to make pizza dough -------------------------------------
+    public String mix() {
+        String ing="mix ingredients to make pizza dough\n";
+        for (int i = 0; i < this.ingredient.size(); i++)
+            ing+= ingredient.get(i).getName()+"\n";
+        return ing;   
+    }
+    
+//free capacity for mixer and makee the exception if the ingredients over flow the capacity for the mixer  -------------------------
+public void freeCapacityException(double capacity , Dough wegithDough) throws MixerOverFlowException  {
+   
+    double freeCapacity = this.capacity - dough.getWeight();
+    
+     if ( freeCapacity < dough.getWeight()) {
+   	throw new MixerOverFlowException();
+           }
+   }
     
 //pour the dough in the pan ---------------------------------------------------------
 public void Pour (Pan p) throws MixerIsEmptyException{
@@ -103,35 +117,17 @@ public void Pour (Pan p) throws MixerIsEmptyException{
              throw new MixerIsEmptyException();
 		 if (freePan<=this.volume) {
 			 p.setSizePan(freePan);
-			 p.setCalories(freePan*CalPerMl());
 			 this.volume-=freePan;
-			 this.calories-=freePan*CalPerMl();
 			 
-			 
-			 
-		 }
+			 }
 		 
 		 else {
 			 p.setSizePan(this.volume);
-			 p.setCalories(this.volume*CalPerMl());
 			 this.volume=0;
 			 this.calories=0;
 			 
 		 }
-	 
-	
  
-	 
  }
- 
-double CalPerMl () {
-	
-	if (volume>0 && calories>0) {
-	ratioOfCalories=(double)(this.calories)/(double)(this.volume); 
-	}
-	else ratioOfCalories=0;
-	
-        return ratioOfCalories;
-	
-}
+
 }

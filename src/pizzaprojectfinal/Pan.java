@@ -14,38 +14,34 @@ import java.util.Scanner;
  */
 public class Pan {
     private double sizePan;
-    private String sizePizza;
     private double calories;
     private double weight;
-    private double volume;//nn
     private ArrayList<Ingredients>ingredient;
-     private Dough dough;
-     private double totalCalories;
-     private Ingredients ingre;
-     private double capacity;
+    private Mixer mixer;
+    private double capacity;
+    private String sizePizza;
+
     
 //default constructor ---------------------------------------------
     public Pan()
     {
         this.capacity=capacity;
-        this.sizePan=0;
         this.calories=0;
         this.ingredient=new ArrayList();
     }
-    //n
+    
+    
+//constructor ----------------------------------------------------
+    public Pan( ArrayList<Ingredients> ingredient,Mixer mixer) {
+        this.ingredient = ingredient;
+        this.mixer=mixer;
+        
+        
+    }
     Pan(double capacity){
         this.ingredient = new ArrayList();
     }
     
-//constructor ----------------------------------------------------
-
-    public Pan(double sizePan, ArrayList<Ingredients> ingredient,Dough dough) {
-        this.sizePan = sizePan;
-        this.ingredient = ingredient;
-        this.dough=dough;
-        
-        
-    }
 
     public Pan(ArrayList<Ingredients> ingredient) {
         this.ingredient = ingredient;
@@ -60,14 +56,12 @@ public class Pan {
     }
     
 
-    public Pan(double sizePan, double calories, double weight, ArrayList<Ingredients> ingredient, Dough dough, double totalCalories) {
-        this.sizePan = sizePan;
+    public Pan( double calories, double weight, ArrayList<Ingredients> ingredient, Mixer mixer) {
         this.calories = calories;
         this.weight = weight;
         this.ingredient = ingredient;
-        this.dough = dough;
-        this.totalCalories = totalCalories;
-          ingredient=new ArrayList<>();
+       
+     ingredient=new ArrayList<>();
      Ingredients pizzaSauce = new Ingredients("pizzaSauce",10,20);
      ingredient.add(pizzaSauce);
      Ingredients mozzarellaCheese = new Ingredients("mozzarellaCheese",20,50);
@@ -95,25 +89,15 @@ public class Pan {
         }
       
     }
-
-   
-
   
 
- 
-   
-    
 //setters\getters ------------------------------------------------
-    public double getSizePan() {
-        return sizePan;
-    }
-
-    public void setSizePan(double sizePan) {
+    public void setSizePan(double sizePan) {    
         this.sizePan = sizePan;
     }
 
     public double getCalories() {
-      return calories;
+        return calories;
     }
 
     public void setCalories(double calories) {
@@ -142,28 +126,12 @@ public class Pan {
         this.ingredient = ingredient;
     }
 
-    public Dough getDough() {
-        return dough;
+    public Mixer getMixer() {
+        return mixer;
     }
 
-    public void setDough(Dough dough) {
-        this.dough = dough;
-    }
-
-    public double getTotalCalories() {
-        return totalCalories;
-    }
-
-    public void setTotalCalories(double totalCalories) {
-        this.totalCalories = totalCalories;
-    }
-
-    public Ingredients getIngre() {
-        return ingre;
-    }
-
-    public void setIngre(Ingredients ingre) {
-        this.ingre = ingre;
+    public void setMixer(Mixer mixer) {
+        this.mixer = mixer;
     }
 
     public double getCapacity() {
@@ -185,45 +153,21 @@ public class Pan {
         this.sizePizza = sizePizza;
     }
 
-    public double getVolume() {
-        return volume;
+    public double getSizePan() {
+        return sizePan;
     }
 
-    public void setVolume(double volume) {
-        this.volume = volume;
-    }
-    
-    
 
     //getInfo -----------------------------
-    @Override
-    public String toString() {
-        return  "sizePan=" + sizePan + ", \ncalories=" + calories + ", \nweight=" + weight + ", \ningredient=" + ingredient + ", \ndough=" + dough.getPanDeep()+ ", \ntotalCalories=" + totalCalories +  '}';
-    }
-  
-      //  public String getInfo() {
-        //String ing="";
-        //for (int i = 0; i < this.ingredient.size(); i++)
-         // ing+= ingredient.get(i).getName()+"\n";
-          
-     //return  "ingredient:\n"+ing+"ingredients Total calories= " +calories + "\nweight = "+ weight+"\ncalories per piece "+this.caloriesPerPiece()  ;       
-    //}
-        
-        
-        
         public String getInfo()
         {
         return "size pizza :" +this.sizePizza+"\npan capacity:"+capacity+"\nthe ingredients calories is  :" + 
                 this.getCalories() +"\nthe ingredients weight is : " +
                 this.getWeight()+"\ncalories per piece : " + this.caloriesPerPiece();
         }
-        
-        
-        
-        
+       
 //add dough in the pan -------------------------------------------
   public  void addS(Dough d) {
-     // d.setWeight(weight);
 	d.setDoughCalories(50);	     
        this.calories+=   d.getDoughCalories();
 	       
@@ -244,18 +188,10 @@ public void add(Ingredients ingredient) throws IngredientsOverFlowWeigh  {
        
   	 
   	  this.weight+=ingredient.getWeight(); 
+           this.calories += ingredient.getCalories();
+
           	  
 }
-//N
-      public void blend() throws IngredientsEmpty {
-        
-        
-        for(Ingredients ing: this.ingredient){
-            this.calories += ing.getCalories();
-          
-        }
-      }
-
     
 //caluclate the calories per piece ------------------------------------------------
     public double caloriesPerPiece()

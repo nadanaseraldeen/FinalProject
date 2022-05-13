@@ -12,7 +12,6 @@ import java.util.ArrayList;
  * @author HP
  */
 public class Dough {
-    private double sizeDough;
     private String panDeep;
     private double weight;
     private ArrayList<Ingredients>ingredient;
@@ -26,10 +25,17 @@ public class Dough {
     }
     
 //constructor -----------------------------------------------------
-
-
-    public Dough( String panDeep, ArrayList<Ingredients> ingredient) {
-        this.sizeDough = sizeDough;
+    public Dough(String panDeep, double weight, ArrayList<Ingredients> ingredient, double doughCalories) {
+        this.panDeep = panDeep;
+        this.weight = weight;
+        this.ingredient = ingredient;
+        this.doughCalories = doughCalories;
+            Ingredients flour=new Ingredients("flour", 20, 105);         
+            Ingredients water = new Ingredients("water", 10, 1);
+            Ingredients yeast=new Ingredients("yeast", 15, 20);
+            Ingredients salt=new Ingredients("salt", 5, 1);
+    }
+     public Dough( String panDeep, ArrayList<Ingredients> ingredient) {
         this.panDeep = panDeep;
         this.ingredient = ingredient;
          for (int i = 0; i < this.ingredient.size(); i++) {
@@ -39,17 +45,8 @@ public class Dough {
         }
          
     }
-   
-//getters & setters
-
-    public double getSizeDough() {
-        return sizeDough;
-    }
-
-    public void setSizeDough(double sizeDough) {
-        this.sizeDough = sizeDough;
-    }
-
+    
+//getters & setters ---------------------------------------------------------
     public String getPanDeep() {
         return panDeep;
     }
@@ -77,6 +74,10 @@ public class Dough {
     public void setDoughCalories(double doughCalories) {
         this.doughCalories = doughCalories;
     }
+    public double getDoughCalories()
+    {
+    return doughCalories;
+    }
     
     
 //getInfo --------------------------------------------------------
@@ -85,16 +86,9 @@ public class Dough {
         for (int i = 0; i < this.ingredient.size(); i++)
           ing+= ingredient.get(i).getName()+"\n";
           
-       // double sizeWeight=sizeDough=="small"?250:sizeDough=="medium"?500:1000;
      return   "\npanDeep=" + panDeep + "\nweight the dough=" + weight + "g\ningredient:\n"+ing+"Dough Total calories= " +doughCalories;       
     }
-// 
  
-//calCulate the calories about the dough -------------------------------------
-public double getDoughCalories()
-{
-    return doughCalories;
-}
 
 
 }

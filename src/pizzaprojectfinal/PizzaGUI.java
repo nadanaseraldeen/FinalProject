@@ -52,12 +52,9 @@ public class PizzaGUI extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         doughTextArea = new javax.swing.JTextArea();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        pour = new javax.swing.JTextArea();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         ingredientTextArea = new javax.swing.JTextArea();
@@ -167,13 +164,6 @@ public class PizzaGUI extends javax.swing.JFrame {
         jLabel10.setFont(new java.awt.Font("Sitka Text", 0, 18)); // NOI18N
         jLabel10.setText("Yeast");
 
-        jButton4.setText("jButton4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -192,9 +182,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton4)
-                        .addGap(65, 65, 65))))
+                        .addGap(65, 247, Short.MAX_VALUE))))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,9 +192,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(jButton4))
+                .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel9)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -227,10 +213,6 @@ public class PizzaGUI extends javax.swing.JFrame {
         doughTextArea.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED), "Dough Information", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Sitka Text", 0, 18))); // NOI18N
         jScrollPane2.setViewportView(doughTextArea);
 
-        pour.setColumns(20);
-        pour.setRows(5);
-        jScrollPane3.setViewportView(pour);
-
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -245,11 +227,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane2)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                                .addComponent(jScrollPane2)))
                         .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -269,10 +247,8 @@ public class PizzaGUI extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 230, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(0, 42, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 69, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Dough", jPanel2);
@@ -472,12 +448,7 @@ public class PizzaGUI extends javax.swing.JFrame {
             Ingredients salt=new Ingredients("salt", 5, 1);
             doughIngredient.add(salt);
                Dough myDough=new Dough( panDeep, doughIngredient);
-               try{
-	m.Pour(p);
-        }
-        catch(MixerIsEmptyException ex){
-           JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
-        }
+             
             doughTextArea.setText(myDough.getInfo());
             }
                 if(deepDishRadioButton.isSelected())
@@ -496,12 +467,7 @@ public class PizzaGUI extends javax.swing.JFrame {
             
             Ingredients salt=new Ingredients("salt", 7, 1);
             doughIngredient.add(salt);
-                    try{
-	m.Pour(p);
-        }
-        catch(MixerIsEmptyException ex){
-           JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
-        }
+           
                Dough myDough=new Dough( panDeep, doughIngredient);
             doughTextArea.setText(myDough.getInfo());
             }
@@ -529,11 +495,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     catch(IngredientsOverFlowWeigh ex){
                     JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
                      }
-                  try{
-                      p.blend();
-                    }catch(IngredientsEmpty e){
-                       JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
-                    }
+                 
                    ingredientTextArea.setText(p.getInfo());
 		     break ;
                      
@@ -546,11 +508,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     catch(IngredientsOverFlowWeigh ex){
                     JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
                      }
-                    try{
-                      p.blend();
-                    }catch(IngredientsEmpty e){
-                       JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
-                    }
+                 
                    ingredientTextArea.setText(p.getInfo());
 		     break ;
                 case 3:ing = new Ingredients("mushroom",55,20);
@@ -561,11 +519,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     catch(IngredientsOverFlowWeigh ex){
                     JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
                      }
-                   try{
-                      p.blend();
-                    }catch(IngredientsEmpty e){
-                       JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
-                    }
+               
                   ingredientTextArea.setText(p.getInfo());
                   break;
                 case 4:     ing = new Ingredients("tomato",100,18);
@@ -576,11 +530,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     catch(IngredientsOverFlowWeigh ex){
                     JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
                      }
-                 try{
-                      p.blend();
-                    }catch(IngredientsEmpty e){
-                       JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
-                    }
+              
                   ingredientTextArea.setText(p.getInfo());
                   break;
                 case 5:     ing = new Ingredients("olive",25,110);
@@ -593,11 +543,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     catch(IngredientsOverFlowWeigh ex){
                     JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
                      }
-                      try{
-                      p.blend();
-                    }catch(IngredientsEmpty e){
-                       JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
-                    }
+                   
                   ingredientTextArea.setText(p.getInfo());
                   break;
                      
@@ -611,11 +557,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     catch(IngredientsOverFlowWeigh ex){
                     JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
                      }
-                      try{
-                      p.blend();
-                    }catch(IngredientsEmpty e){
-                       JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
-                    }
+                   
                   ingredientTextArea.setText(p.getInfo());
                   break;
                   
@@ -629,12 +571,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     catch(IngredientsOverFlowWeigh ex){
                     JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
                      }
-                      try{
-                      p.blend();
-                    }
-                      catch(IngredientsEmpty e){
-                       JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
-                    }
+                  
                   ingredientTextArea.setText(p.getInfo());
                   break;
                 case 8:
@@ -648,11 +585,7 @@ public class PizzaGUI extends javax.swing.JFrame {
                     catch(IngredientsOverFlowWeigh ex){
                     JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
                      }
-                      try{
-                      p.blend();
-                    }catch(IngredientsEmpty e){
-                       JOptionPane.showMessageDialog(this, e.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);  
-                    }
+                   
                   ingredientTextArea.setText(p.getInfo());
                   break;
                      
@@ -691,22 +624,6 @@ public class PizzaGUI extends javax.swing.JFrame {
             ingredientTextArea.setText(p.getInfo());
         
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-          int panNum = Integer.parseInt(JOptionPane.showInputDialog("Enter How many number of pizza want"));
-        p.setCapacity(panNum*150); ; 
-	Mixer m = new Mixer();	
-	try{
-	m.Pour(p);
-        //m.saveCupsObj(cup);
-        }
-        catch(MixerIsEmptyException ex){
-           JOptionPane.showMessageDialog(this, ex.getMessage() ,"Errors", JOptionPane.ERROR_MESSAGE);
-        }
-        pour.setText(p.getInfo());
-        //afterPoiuringTextArea.setText(b.getInfo());
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -752,7 +669,6 @@ public class PizzaGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -782,11 +698,9 @@ public class PizzaGUI extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JRadioButton panRadioButton;
-    private javax.swing.JTextArea pour;
     // End of variables declaration//GEN-END:variables
 }

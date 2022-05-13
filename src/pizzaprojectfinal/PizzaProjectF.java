@@ -20,18 +20,7 @@ public class PizzaProjectF {
      */
     public static void main(String[] args) {
        // TODO code application logic here
-    	//new PizzaGUI().setVisible(true);
-        
-       /* Pan p = new Pan(200.0);
-        Dough d = new Dough(300);
-        Mixer m = new Mixer();
-        try{
-            m.Pour(p);
-        }
-        catch(PanOverFlowException ex)
-        {
-          System.out.println("the dough is over flow the pan");
-        }*/
+    new PizzaGUI().setVisible(true);
 		Scanner input = new Scanner (System.in);
                ArrayList<Ingredients>myIngredient =new ArrayList<>() ;
             
