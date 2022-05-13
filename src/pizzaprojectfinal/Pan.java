@@ -20,6 +20,8 @@ public class Pan {
     private Mixer mixer;
     private double capacity;
     private String sizePizza;
+    
+    private double caloriesPerPiece;
 
     
 //default constructor ---------------------------------------------
@@ -89,7 +91,14 @@ public class Pan {
         }
       
     }
-  
+  Pan(String sizePizza,double capacity,double calories ,double weight,double caloriesPerPiece)
+  {
+      this.sizePizza = sizePizza;
+      this.capacity=capacity;
+      this.calories=calories;
+      this.weight=weight;
+      this.caloriesPerPiece =caloriesPerPiece;
+  }
 
 //setters\getters ------------------------------------------------
     public void setSizePan(double sizePan) {    
