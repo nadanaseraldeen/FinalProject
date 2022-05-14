@@ -10,6 +10,6 @@ package pizzaprojectfinal;
  * @author HP
  */
 public interface Logger {
-    public String log();
+    public void log(String msg);
     
 }

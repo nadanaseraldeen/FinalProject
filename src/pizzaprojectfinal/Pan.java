@@ -19,8 +19,7 @@ public class Pan {
     private ArrayList<Ingredients>ingredient;
     private Mixer mixer;
     private double capacity;
-    private String sizePizza;
-    
+    private String sizePizza;    
     private double caloriesPerPiece;
 
     
@@ -98,6 +97,11 @@ public class Pan {
       this.calories=calories;
       this.weight=weight;
       this.caloriesPerPiece =caloriesPerPiece;
+  }
+  
+  public Pan(Logger logger)
+  {
+      logger.log("the logger");
   }
 
 //setters\getters ------------------------------------------------
