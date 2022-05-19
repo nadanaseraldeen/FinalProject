@@ -447,7 +447,7 @@ public class PizzaGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
        File file = null; 
         JFileChooser  chooser = new JFileChooser();
-        JOptionPane.showMessageDialog(this, "before");
+        
         int val = chooser.showOpenDialog(this);  
         if (val == JFileChooser.APPROVE_OPTION){
             file = chooser.getSelectedFile(); 
@@ -456,34 +456,79 @@ public class PizzaGUI extends javax.swing.JFrame {
          
         ArrayList<String>arr= new ArrayList<String>(); 
         try { 
-            JOptionPane.showMessageDialog(this, "test1");
+           
+          //  Scanner input = new Scanner(file); 
+            JOptionPane.showMessageDialog(this, p.getInfo());
             Scanner input = new Scanner(file); 
-            JOptionPane.showMessageDialog(this, "test2");
-            String  pizzasize = input.next(); 
-            JOptionPane.showMessageDialog(this, "test3");
-            String  doughsize = input.next(); 
-            double calories = input.nextDouble(); 
-            JOptionPane.showMessageDialog(this, "test4");
+
+        //    String p = input.next() ; 
+         // JOptionPane.showMessageDialog(this, p.getSizePizza());
+           // String sizePizza = input.next() ; 
+            //JOptionPane.showMessageDialog(this,p.getCapacity());
+
+            //double capacity = input.nextDouble() ;
+             //           JOptionPane.showMessageDialog(this, p.getCalories());
+
+            //double calories = input.nextDouble() ; 
+              //         JOptionPane.showMessageDialog(this, p.getWeight());
+
+            //double weight = input.nextDouble() ; 
+              //          JOptionPane.showMessageDialog(this, p.caloriesPerPiece());
+
+            //double caloriesPerPiece = input.nextDouble() ; 
+            
+           
             String ing ; 
              
             while(input.hasNext()){
                  ing = input.next();
                  arr.add(ing); 
                  
-            }
-            JOptionPane.showMessageDialog(this, pizzasize);
-            JOptionPane.showMessageDialog(this, doughsize);
-            JOptionPane.showMessageDialog(this, calories);
-           
-            for(int i= 0 ; i<arr.size(); i++){
-                JOptionPane.showMessageDialog(this, arr.get(i));
+           }
+         //    JOptionPane.showMessageDialog(this, sizePizza);
+           //  JOptionPane.showMessageDialog(this,capacity );
+             //JOptionPane.showMessageDialog(this,calories );
+             //JOptionPane.showMessageDialog(this,weight );
+
+           //  JOptionPane.showMessageDialog(this, caloriesPerPiece);
+         
+         //   Pan pizaa = new Pan(p ,sizePizza,capacity,weight,caloriesPerPiece ); 
+//                      Pan pa = new Pan( sizePizza, capacity, calories , weight, caloriesPerPiece);
+//for(int i= 0 ; i<arr.size(); i++){
+  //              JOptionPane.showMessageDialog(this, arr.get(i));
                 
-            }     
-            
-//            Pizza p = new Pizza (pizzasize,doughsize, calories, arr);
+    //        }  
+                   //   Pan pa = new Pan( sizePizza, capacity, calories , weight, caloriesPerPiece);
+//pa.getInfo();
+           
         } catch (FileNotFoundException ex) {
             JOptionPane.showMessageDialog(rootPane, ex.toString());
         }
+        
+           // Scanner input = new Scanner(file); 
+           // String sizePizza = input.next() ; 
+            //double capacity = input.nextDouble() ; 
+            //double calories = input.nextDouble() ; 
+            //double weight = input.nextDouble() ; 
+            //double caloriesPerPiece = input.nextDouble() ; 
+
+           
+            //String ing ; 
+             
+            //while(input.hasNext()){
+              //  ing = input.next(); 
+                // arr.add(ing); 
+                 
+            //}
+             //JOptionPane.showMessageDialog(this, p);
+            //Pan pa = new Pan( sizePizza, capacity, calories , weight, caloriesPerPiece);
+            //Pan pizaa = new Pan(); 
+           
+           
+        //} catch (FileNotFoundException ex) {
+          //  JOptionPane.showMessageDialog(rootPane, ex.toString());
+   //     }
+    
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void panRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panRadioButtonActionPerformed
